@@ -24,7 +24,7 @@ use Drupal\rules\Core\RulesActionBase;
  *     ),
  *     "rounding_behavior" = @ContextDefinition("string",
  *       label = @Translation("Rounding behavior"),
- *       required = false
+ *       required = FALSE
  *     )
  *   },
  *   provides = {
@@ -42,13 +42,9 @@ use Drupal\rules\Core\RulesActionBase;
 class DataConvert extends RulesActionBase {
 
   /**
-   * Executes the plugin.
+   * Execute the action within the given context.
    */
-  public function execute() {
-    $value = $this->getContextValue('value');
-
-    $target_type = $this->getContextValue('target_type');
-    $rounding_behavior = $this->getContextValue('rounding_behavior');
+  protected function doExecute($value, $target_type, $rounding_behavior) {
 
     // @todo: Add support for objects implementing __toString().
     if (!is_scalar($value)) {
