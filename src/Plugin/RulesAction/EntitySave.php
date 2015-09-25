@@ -44,7 +44,7 @@ class EntitySave extends RulesActionBase {
   /**
    * Saves the Entity.
    *
-   * @param $entity \Drupal\Core\Entity\EntityInterface
+   * @param \Drupal\Core\Entity\EntityInterface $entity
    *    The entity to be saved.
    */
   public function doExecute(EntityInterface $entity) {
