@@ -44,14 +44,13 @@ class EntitySave extends RulesActionBase {
   /**
    * Saves the Entity.
    *
-   * @param EntityInterface
+   * @param $entity \Drupal\Core\Entity\EntityInterface
    *    The entity to be saved.
    */
   public function doExecute(EntityInterface $entity) {
     // We only need to do something here if the immediate flag is set, otherwise
     // the entity will be auto-saved after the execution.
     if ((bool) $this->getContextValue('immediate')) {
-      //$entity = $this->getContextValue('entity');
       $entity->save();
       $this->saveLater = FALSE;
     }
