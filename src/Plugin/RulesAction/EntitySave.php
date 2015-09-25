@@ -42,7 +42,10 @@ class EntitySave extends RulesActionBase {
   protected $saveLater = TRUE;
 
   /**
-   * {@inheritdoc}
+   * Saves the Entity.
+   *
+   * @param EntityInterface
+   *    The entity to be saved.
    */
   public function doExecute(EntityInterface $entity) {
     // We only need to do something here if the immediate flag is set, otherwise
