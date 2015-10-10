@@ -45,7 +45,7 @@ class EntitySave extends RulesActionBase {
    * Saves the Entity.
    *
    * @param \Drupal\Core\Entity\EntityInterface $entity
-   *    The entity to be saved.
+   *   The entity to be saved.
    */
   public function doExecute(EntityInterface $entity) {
     // We only need to do something here if the immediate flag is set, otherwise
