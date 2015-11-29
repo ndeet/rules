@@ -44,14 +44,14 @@ class DataConvert extends RulesActionBase {
   /**
    * Executes the plugin.
    *
-   * @param $value
-   *   The input value
+   * @param mixed $value
+   *   The input value.
    * @param string $target_type
-   *   The target for the action
+   *   The target for the action.
    * @param string $rounding_behavior
-   *   The behaviour for rounding
+   *   The behaviour for rounding.
    */
-  public function doExecute($value, $target_type, $rounding_behavior)  {
+  public function doExecute($value, $target_type, $rounding_behavior) {
     // @todo: Add support for objects implementing __toString().
     if (!is_scalar($value)) {
       throw new \InvalidArgumentException('Only scalar values are supported.');
@@ -68,12 +68,15 @@ class DataConvert extends RulesActionBase {
         case 'up':
           $value = ceil($value);
           break;
+
         case 'down':
           $value = floor($value);
           break;
+
         case 'round':
           $value = round($value);
           break;
+
         default:
           throw new \InvalidArgumentException(SafeMarkup::format('Unknown rounding behavior: @rounding_behavior', [
             '@rounding_behavior' => $rounding_behavior,
@@ -85,12 +88,15 @@ class DataConvert extends RulesActionBase {
       case 'float':
         $result = floatval($value);
         break;
+
       case 'integer':
         $result = intval($value);
         break;
+
       case 'string':
         $result = strval($value);
         break;
+
       default:
         throw new \InvalidArgumentException(SafeMarkup::format('Unknown target type: @type', [
           '@type' => $target_type,
@@ -99,4 +105,5 @@ class DataConvert extends RulesActionBase {
 
     $this->setProvidedValue('conversion_result', $result);
   }
+
 }
